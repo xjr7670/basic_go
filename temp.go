@@ -4,20 +4,20 @@ import (
 	"fmt"
 )
 
-const (
-    a = 1 << (iota * 10)
-    b = 1 << (iota * 10)
-    c = 1 << (iota * 10)
-    d = 1 << (iota * 10)
-    e = 1 << (iota * 10)
-    f = 1 << (iota * 10)
-)
 
 func main() {
-        fmt.Println(a)
-        fmt.Println(b)
-        fmt.Println(c)
-        fmt.Println(d)
-        fmt.Println(e)
-        fmt.Println(f)
+    a := [...]int{5, 2, 6, 3, 9}
+    fmt.Println(a)
+
+    num := len(a)
+    for i := 0; i < num; i++ {
+        for j := i+1; j < num; j++ {
+            if a[i] < a[j] {
+                temp := a[i]
+                a[i] = a[j]
+                a[j] = temp
+            }
+        }
+    }
+    fmt.Println(a)
 }
